@@ -2796,7 +2796,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
             return activeView;
         },
         updateResponsiveView: function updateResponsiveView() {
-            var wHeight = window.innerHeight - 250;
+            //PFG
+            var wHeight = window.innerHeight - 126;
             var videoSection = this.item.find('div[data-video_src]');
             
             if (videoSection.length > 0) {
