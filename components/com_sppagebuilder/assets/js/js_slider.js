@@ -2815,7 +2815,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
             
             if (viewPort.height === 'full') {
                 if (this._lastViewPort === wHeight) return;
-                this._lastViewPort = wHeight;
+                this._lastViewPort = wHeight - 250;
                 this.$outerStage.css({
                     height: wHeight + 'px'
                 });
