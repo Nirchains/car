@@ -2796,7 +2796,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
             return activeView;
         },
         updateResponsiveView: function updateResponsiveView() {
-            var wHeight = window.innerHeight;
+            var wHeight = window.innerHeight - 250;
             var videoSection = this.item.find('div[data-video_src]');
             
             if (videoSection.length > 0) {
@@ -2815,7 +2815,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
             
             if (viewPort.height === 'full') {
                 if (this._lastViewPort === wHeight) return;
-                this._lastViewPort = wHeight - 250;
+                this._lastViewPort = wHeight;
                 this.$outerStage.css({
                     height: wHeight + 'px'
                 });
