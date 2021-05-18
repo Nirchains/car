@@ -1,0 +1,232 @@
+
+.flex-modal {
+	
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 10091; /* Sit on top */
+	padding:0;
+	top: 0;
+	left: 0;
+	outline:0;
+	margin: auto;
+	width: 100vw; /* Full width */
+	height: 100vh; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	color:@text_color;
+	
+	&.open-modal {
+		display: block;
+		-webkit-transform: translate3d(0,0,0);
+		transform: translate3d(0,0,0);
+		transform-style: preserve-3d;
+		-webkit-backface-visibility: hidden;
+		-webkit-animation: simple-fade .5s ease forwards;
+		animation: simple-fade .5s ease forwards;
+		background: rgba(0,0,0,0.35);
+		
+		/* Backdrop filter added in Flex 3.9.3 */
+		-webkit-backdrop-filter: blur(0.1em) opacity(95%);
+		backdrop-filter: blur(0.1em) opacity(95%);
+		
+		/* Modal Content */
+		.flex-modal-content {
+			
+			background-color: #fff;
+			width:600px;
+			margin: auto;
+			padding:30px;
+			border:0;
+			outline:0;
+			overflow:hidden; /* fix for parent border-radius */
+			border-radius:7px;
+			box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),0 6px 55px 0 rgba(0,0,0,0.25); 
+			-webkit-animation: zoom_modal 1s ease forwards;
+			animation: zoom_modal 1s ease forwards;
+			transform-style: preserve-3d;
+			top: 15vh;
+			
+				.flex-modal-body {
+					padding:20px;
+					margin:0;
+					width:100%;
+					height:100%;
+					outline:0;
+					clear:both;
+					display:block;
+					overflow:hidden;
+					
+					.pretext, .posttext {
+						text-align:left;
+					}
+				}
+				
+				.flex-modal-body .tm-img-wrapper > .img-responsive {
+					display:block;
+					width: 100%;
+					height:100%;
+					margin:auto;
+					padding:0;
+					outline:none;
+					object-fit: cover;
+				}
+				
+				.flex-modal-header,
+				.flex-modal-footer {
+					padding:10px 20px;
+					margin:0;
+					clear:both;
+					display:block;
+				}
+				
+				
+				.flex-modal-header::after,
+				.flex-modal-footer::after {
+					clear: both;
+					content: "";
+					display: table;
+				}
+				
+				&::after {
+					clear: both;
+					content: "";
+					display: table;
+				}
+				
+		}
+		
+	}
+	
+}
+
+
+/* The Close Button */
+.fm-close {
+	position:absolute;
+	z-index:9;
+	display:block;
+	right:0;
+	top:0;
+	width:55px;
+	height:50px;
+	background:transparent;
+	margin:0;
+	padding:0;
+	border:none;
+	outline:0;
+	float: right;
+	font-size: 38px;
+	line-height: 38px;
+	font-weight: bold;
+}
+
+.fm-close:hover,
+.fm-close:focus {
+	color: #777;
+	text-decoration: none;
+	cursor: pointer;
+}
+@media (max-width: @screen-sm) {
+	.flex-modal {
+		
+		.flex-modal-content {
+			width:80%;
+			padding:25px 12px 30px;
+	
+		}
+	}
+}
+
+@media (max-width: @screen-xs) {
+    .flex-modal {
+		padding: 2vh 0;
+		
+		.flex-modal-content {
+			width:85%;
+			padding:15px 5px 30px;
+			top:10vh;
+	
+		}
+	}
+	
+}
+
+@-webkit-keyframes simple-fade {
+  0% {
+    opacity: 0;
+	visibility:hidden;
+  }
+  100% {
+    opacity: 1;
+	visibility:visible;
+  }
+}
+@keyframes simple-fade {
+  0% {
+    opacity: 0;
+	visibility:hidden;
+  }
+  100% {
+    opacity: 1;
+	visibility:visible;
+  }
+}
+
+@-webkit-keyframes zoom_modal {
+  0% {
+	-webkit-transform: translate3d(0,-100px,0) scale(0.7) perspective(700px) rotateX(20deg);
+    transform: translate3d(0,-100px,0) scale(0.7) perspective(700px) rotateX(20deg);
+  }
+  40% {
+    -webkit-transform: translate3d(0,7px,0) scale(1.015);
+    transform: translate3d(0,7px,0) scale(1.015);
+  }
+  80% {
+    -webkit-transform: perspective(1000px) rotateX(0deg);
+    transform: perspective(1000px) rotateX(0deg);
+  }
+  100% {
+    -webkit-transform: translate3d(0,0,0) scale(1.0001);
+    transform: translate3d(0,0,0) scale(1.0001);
+  }
+}
+@keyframes zoom_modal {
+  0% {
+	-webkit-transform: translate3d(0,-100px,0) scale(0.7) perspective(700px) rotateX(20deg);
+    transform: translate3d(0,-100px,0) scale(0.7) perspective(700px) rotateX(20deg);
+  }
+  40% {
+    -webkit-transform: translate3d(0,7px,0) scale(1.015);
+    transform: translate3d(0,7px,0) scale(1.015);
+  }
+  80% {
+    -webkit-transform: perspective(1000px) rotateX(0deg);
+    transform: perspective(1000px) rotateX(0deg);
+  }
+  100% {
+    -webkit-transform: translate3d(0,0,0) scale(1.0001);
+    transform: translate3d(0,0,0) scale(1.0001);
+  }
+}
+
+@media (max-width: @screen-sm) {
+	.flex-modal {
+		&.open-modal{
+			.flex-modal-content {
+				width: 80%;
+				top: 10%;
+				padding:30px 15px;
+			}
+		}
+	}
+}
+@media (max-width: @screen-xs) {
+	.flex-modal {
+		&.open-modal{
+			.flex-modal-content {
+				width: 85%;
+				top: 8%;
+				padding:30px 10px;
+			}
+		}
+	}
+}
