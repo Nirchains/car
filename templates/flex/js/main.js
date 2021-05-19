@@ -12,6 +12,12 @@ $this.css('backgroundPosition',xpos+" "+Math.round((firstTop-pos)*speedFactor)+"
 $window.bind('scroll',update).resize(update);update()}})(jQuery);
 	
 jQuery(function($) {
+  
+  $(".go-to-content").click(function () {
+        $('html, body').animate({
+         scrollTop: $(".content").offset().top - 70
+         }, 500);
+    });
 	
 	/* Mootools Fix: add missing Mootools when Bootstrap is loaded */
 	var bootstrapLoaded="function"==typeof $().carousel,mootoolsLoaded="undefined"!=typeof MooTools;bootstrapLoaded&&mootoolsLoaded&&Element.implement({hide:function(){return this},show:function(o){return this},slide:function(o){return this}});
